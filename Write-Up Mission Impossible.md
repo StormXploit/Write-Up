@@ -32,7 +32,7 @@ Nice, it works well so now we create the profile for the memory dump after insta
 
 ```root@debian :usr/src/volatility-tools/linux\# zip santha\_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64```
 
-![](yolo.png)
+![](images/yolo.png)
 
 Hmm sounds good, I copy the profile to my physical machine and place it in the right directory:
 
@@ -46,7 +46,7 @@ Hmm sounds good, I copy the profile to my physical machine and place it in the r
 
 The first thing I do is to dump the bash\_history to see if there is an interesting command that might help us:
 
-![](yolo2.png)
+![](images/yolo2.png)
 
 We can see that the user deleted a flag file, and zipped an entire directory to a compressed backup zip file.
 
@@ -62,7 +62,7 @@ So there were too many files. I took my favorite text editor and tried to find �
 
 There were many files in the dir so I’ll only tell and show you what was interesting:
 
-![](yolo3.png)
+![](images/yolo3.png)
 
 I dumped these files using this command below (example for one file):
 
@@ -158,7 +158,7 @@ So I downloaded pkcrack software and then, the most tedious and long task began.
 
 Reading the article, I understood that I had to reconstitute exactly the same archive but with plaintext files, so I extracted all the files in jcvd-website/ (same technique showed above to extract the zip parts), and created the same setup as the zip password protected archive:
 
-![](yolo4.png)
+![](images/yolo4.png)
 
 I created a flag .txt with the same bytes as the real flag.txt to use pkcrack correctly with our homemade plaintext archive. I zipped this directory into a backup2.zip file.
 
@@ -312,4 +312,4 @@ To decrypt the zip file, I used a tool named bkcrack. I used the first three key
 
 And finally get the flag:
 
-![](yolo5.png)
+![](images/yolo5.png)
