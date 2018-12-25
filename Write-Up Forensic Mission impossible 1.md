@@ -25,7 +25,11 @@ Nice, it works well so now we create the profile for the memory dump after insta
 
 ```root@debian:/usr/src/volatility-tools\# chmod -R 777 linux/```
 ```root@debian:/usr/src/volatility-tools/linux\# make```
+<<<<<<< HEAD:Write-Up Forensic Mission impossible 1.md
 ```root@debian :usr/src/volatility-tools/linux\# zip santha\_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64```
+=======
+```root@debian :usr/src/volatility-tools/linux\# zip santha\_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64```
+>>>>>>> 8d3b3e3cc4f912109aa89af6fafe828b9e0f20f5:SanthacklausCTF_2k18/Write-Up Mission Impossible.md
 
 ![](images/yolo.png)
 
@@ -200,4 +204,8 @@ To decrypt the zip file, I used a tool named bkcrack. I used the first three key
 
 And finally get the flag:
 
+<<<<<<< HEAD:Write-Up Forensic Mission impossible 1.md
 ![](images/yolo5.png)
+=======
+![](images/yolo5.png)
+>>>>>>> 8d3b3e3cc4f912109aa89af6fafe828b9e0f20f5:SanthacklausCTF_2k18/Write-Up Mission Impossible.md
