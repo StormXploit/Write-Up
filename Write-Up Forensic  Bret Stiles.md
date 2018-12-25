@@ -1,4 +1,4 @@
-<u>*Write-Up Forensic : Bret Stiles*</u>
+<u>*Write-Up Forensic : Bret Stiles*</u>
 
 **TL;DR**
 
@@ -16,7 +16,7 @@ After searching on Google how to analyze Windows crash dump (it was my first tim
 
 Hmm at this point, my brain was on fire seeing these offsets. First of all I read the information next to the offsets and find something interesting: *MachineImageType 0x00008664*
 
-Let’s google it to see if someone has already performed an analysis on a similar crash dump. Yeah we get a github which indicates that it was a Windows 10 profile. Now, let’s check the process on the memory dump :
+Let’s google it to see if someone has already performed an analysis on a similar crash dump. Yeah we get a github which indicates that it was a Windows 10 profile. Now, let’s check the process on the memory dump :
 
 ![](images/ala3.png)
 
@@ -48,7 +48,7 @@ Nice!! The picture was opened with mspaint.exe. Let’s dump the memory of this 
 
 As I explained before, it was the hardest part of this challenge. I didn’t know any techniques to see a picture from the application memory dump. After spending some time on Google, I found a very interesting blog: <https://w00tsec.blogspot.com/2015/02/extracting-raw-pictures-from-memory.html>
 
-We now have the techniques, let’s start the art, copy the process.dmp into process.data to be able to open it with gimp as raw image data :
+We now have the techniques, let’s start the art, copy the process.dmp into process.data to be able to open it with gimp as raw image data :
 
 ![](images/ala10.png)
 
