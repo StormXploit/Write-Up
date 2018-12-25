@@ -310,4 +310,10 @@ To decrypt the zip file, I used a tool named bkcrack. I used the first three key
 
 And finally get the flag:
 
+<<<<<<< HEAD
 ![](images/yolo5.png)
+=======
+![](images/yolo5.png)
+
+
+>>>>>>> 6c0cc41ff9204c912c25417054e112183ca28bb2
