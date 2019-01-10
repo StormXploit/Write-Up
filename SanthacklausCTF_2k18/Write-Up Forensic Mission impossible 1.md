@@ -27,7 +27,7 @@ Nice, it works well so now we create the profile for the memory dump after insta
 
 ```root@debian:/usr/src/volatility-tools/linux\# make```
 
-```root@debian:/usr/src/volatility-tools/linux\# zip santha\_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64`
+```root@debian:/usr/src/volatility-tools/linux\# zip santha_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64`
 
    root@debian:/usr/src/volatility-tools/linux\# zip santha\_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64```
 
@@ -42,7 +42,7 @@ Hmm sounds good, I copy the profile to my physical machine and place it in the r
 
 **Starting investigations!**
 
-The first thing I do is to dump the bash\_history to see if there is an interesting command that might help us:
+The first thing I do was to dump the bash\_history to see if there is an interesting command that might help us:
 
 ![](images/yolo2.png)
 
@@ -52,7 +52,7 @@ Let's see if volatility can retrieve those files:
 
 ```storm at arch in ~/W/missions\_1```
 
-```↪ volatility -f challenge.elf --profile=Linuxsantha\_profilex64 linux\_enumerate\_files &gt; files.txt```
+```↪ volatility -f challenge.elf --profile=Linuxsantha_profilex64 linux_enumerate_files files.txt```
 
 So there were too many files. I took my favorite text editor and tried to find “flag.txt” without success. Then, tried to find the interesting directory that we found before in the bash history:
 
@@ -66,7 +66,7 @@ I dumped these files using this command below (example for one file):
 
 ```storm at arch in ~/W/missions\_1```
 
-```↪ volatility -f challenge.elf --profile=Linuxsantha\_profilex64 linux\_find\_file -i 0xffff88001e61c0c8 -O backup/backup.z06```
+```↪ volatility -f challenge.elf --profile=Linuxsantha\_profilex64 linux_find_file -i 0xffff88001e61c0c8 -O backup/backup.z06```
 
 Now it’s time to reconstitute the entire archive with the ten parts:
 
@@ -80,7 +80,7 @@ After that, we tried to unzip the archive but it was a protected zipfile. I trie
 
 While searching on the web during more than 3 hours, I managed to find an interesting blog (old but gold): <http://www.securiteam.com/tools/5NP0C009PU.html>
 
-So I downloaded pkcrack software and then, the most tedious and long task began. After a zipinfo on the fullbackup.zip, we could see this:https://github.com/StormXploit/Write-Up/
+So I downloaded pkcrack software and then, the most tedious and long task began. After a zipinfo on the fullbackup.zip, we could see this:
 
 ```storm at arch in ~/T/m/m/backup```
 
@@ -310,10 +310,6 @@ To decrypt the zip file, I used a tool named bkcrack. I used the first three key
 
 And finally get the flag:
 
-<<<<<<< HEAD
 ![](images/yolo5.png)
 =======
-![](images/yolo5.png)
 
-
->>>>>>> 6c0cc41ff9204c912c25417054e112183ca28bb2

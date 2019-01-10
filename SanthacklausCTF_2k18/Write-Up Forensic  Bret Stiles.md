@@ -32,7 +32,7 @@ The first thing to do when you have a suspicious executable is to dump it on vir
 
 ![](images/ala6.png)
 
-Ok, so it seemed to be an adware. After checking the file details, where nothing interesting was found, I tried to recover the internet history (without success) and also check the clipboard to see if a password or, who knows the flag haha, may be there, but nothing. As I didn’t find much more on this executable and internet, I started retrieving the files, checking for a possible interesting command line :
+Ok, so it seemed to be an adware. After checking the file details, where nothing interesting was found, I tried to recover the internet history (without success) and also check the clipboard to see if a password or, who knows the flag haha, may be there, but nothing. As I didn’t find much more on this executable and internet, I started retrieving the files, checking for a possible interesting command line:
 
 ![](images/ala7.png)
 
