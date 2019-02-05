@@ -52,7 +52,7 @@ Yes the kernel is installed, we can create the _module.dwarf_ file using volaitl
 
 ![](images/image4.png)
 
-→ This is theoriginal Makefile with a variable that take our actual kernel to build the module.dwarf file.
+→ This is the original Makefile with a variable that take our actual kernel to build the module.dwarf file.
 
 ![](images/image5.png)
 
