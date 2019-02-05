@@ -1,10 +1,10 @@
-​						 **\*Write-Up OpenMe, HackSecuReims 2019***
+​						 ***Write-Up OpenMe, HackSecuReims 2019***
 
  	<u>**TL;DR**</u>
 
  	This challenge was one of the hardest forensic challenge of the event. I didn’t manage to flag it during the event because I built the profile with an outdated kernel (one version older). I have tried hard at home and hopefully flag it a day after the event. I’m doing this Write-Up because I don’t know anyone who ever performed a dump analysis of openSUSE linux, while writting a good report of the process. I will try to explain the process clearly, and hope that it will maybe help you one day.
 
- 	**<u>Analyzing the dump</u>**
+ 	<u>**Analyzing the dump**</u>
 
  	First of all, I tried to check the image profile of the dump with volatility. Unfortunately, there was only one correspondence: it was with an old linux kernel that I used for a challenge some weeks ago. As it is a linux dump, I should determine the version of the kernel to analyze it:
 
@@ -40,7 +40,7 @@ As you can see, it is an openSUSE linux profile. After doing this, we need to in
 
  
 
- 	<u>**State of the Art:**  **create the profile**</u>
+ 	<u>**State of the Art: create the profile**</u>
 
  
 
@@ -102,7 +102,7 @@ Then I did *make:*
 
  
 
- 	<u>**Flag the challenge: analyze** **the dump**</u>
+ 	<u>**Flag the challenge: analyze the dump**</u>
 
  
 
@@ -125,11 +125,12 @@ Then I did *make:*
 
  ![](images/image14.png) 
 
- Opening the image and get the flag :-)
+ Opening the image and get the flag:
 
  ![](images/image15.png) 
 
+ 
 
- 	To conclude, as you have maybe guessed, the entire problem result in the fact that there is few documentations in openSUSE linux. As you have seen, when you have the correct profile to analyze the dump, this is easier because you just use an automated tools to retrieve informations include in the dump. In fact, I did this challenge because I found pity that no one flag it or even try it in depth. Indeed, it requires patience and lot of documentation reading to do it but that’s a good way to progress I think. Even if after ten hours of try and fails I did not succeed, I never gave up and did this challenge some hours after the CTF at home. Regardless, if I have an advice for you guys, it is to never give up, RTFM and believe in your dreams.
+​	To conclude, as you have maybe guessed, the entire problem result in the fact that there is few documentations in openSUSE linux. As you have seen, when you have the correct profile to analyze the dump, this is easier because you just use an automated tools to retrieve informations include in the dump. In fact, I did this challenge because I found pity that no one flag it or even try it in depth. Indeed, it requires patience and lot of documentation reading to do it but that’s a good way to progress I think. Even if after ten hours of try and fails I did not succeed, I never gave up and did this challenge some hours after the CTF at home. Regardless, if I have an advice for you guys, it is to never give up, RTFM and believe in your dreams.
 
- <!--Twitter: @Anton86077261-->
+ Twitter: @Anton86077261
