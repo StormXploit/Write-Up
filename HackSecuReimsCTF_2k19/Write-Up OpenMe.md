@@ -32,45 +32,45 @@ Because it was the first time I used openSUSE, I had a lot to learn. While searc
 
 As instructed by the article, I first installed subversion with zypper. But the command for installing volatility did not work. Instead, I install volatility with git and it worked perfectly. Then, I installed libdwarf-tools, make and gcc with zypper as written in the article. Next is the harder part of the challenge: installing the correct kernel. I started by installing _kernel-devel-4.12.14-lp150.12.16_ as it is the kernel of the image dump. Zypper, the openSUSE package manager was not able to find this kernel. Thus, I searched online and figured out how to install it : I should use rpm package.
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image1.png?lastModify=1549398699)
+![](images/image1.png)
 
 I downloaded the binary package and tried to install it with _sudo rpm_  _U mypackage.rpm_. Unfortunately, there were some dependencies that I had not installed. So, I installed them with zypper (just read your errors and install the package you’ve not). Next, to get the _lib/modules/mykernel_ directory, I need to install the _kernel-source-4.12.14-lp150.12.16_ package.
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image2.png?lastModify=1549398699)
+![](images/image2.png)
 
 As I already have the VM I used to flag the challenge, I have this package installed. Then, I looked into /_lib/modules_ to see if I had the correct kernel installed:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image3.png?lastModify=1549398699)
+![](images/image3.png)
 
 Yes the kernel is installed, we can create the _module.dwarf_ file using volaitlity. I went into the directory /_home/ctf/volatility/tools/linux/_ and modified the Makefile as I was not running the right kernel (and didn’t want to reboot):
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image4.png?lastModify=1549398699)
+![](images/image4.png)
 
 → This is theoriginal Makefile with a variable that take our actual kernel to build the module.dwarf file.
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image5.png?lastModify=1549398699)
+![](images/image5.png)
 
 → This is the new Makefile, I just replaced the var with the kernel directory I wanted.
 
 Then I did _make:_
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image6.png?lastModify=1549398699)
+![](images/image6.png)
 
 Next, we need to get the system-map file in /boot to finish our profile. In order to create this file, I simply installed:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image7.png?lastModify=1549398699)
+![](images/image7.png)
 
 Now we check the /boot dir to see if the system map is present :
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image8.png?lastModify=1549398699)
+![](images/image8.png)
 
 We can now create our profile ! Let’s zip it into openme.zip:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image9.png?lastModify=1549398699)
+![](images/image9.png)
 
 Just verifying that the profile is recognized by volatility:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image10.png?lastModify=1549398699)
+![](images/image10.png)
 
 Perfect, we can use it to analyze our dump.
 
@@ -78,23 +78,23 @@ Perfect, we can use it to analyze our dump.
 
 First of all, I used the command linux_bash to see if the user did something interesting for us. I highly recommend you to start with this command while analyzing a memory dump. Indeed, users most often do something interesting in a command line: they can be either using a tool to encrypt something (maybe VeraCrypt sometimes) or just a zipfile with a password that might be interesting (like in our case).
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image11.png?lastModify=1549398699)
+![](images/image11.png)
 
 As we can see, the user zip a flag.png into flag.zip with a password. First, enumerating all the files in one file, then identify the offset of the file _flag.zip_ to extract it:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image12.png?lastModify=1549398699)
+![](images/image12.png)
 
 Here we have the offset of the file ! Let’s retrieve it with linux_find_file:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image13.png?lastModify=1549398699)
+![](images/image13.png)
 
 Then, just unzipping the zip with the password the user used to zip it (see in the screen above):
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image14.png?lastModify=1549398699)
+![](images/image14.png)
 
 Opening the image and get the flag:
 
-![](file:///home/storm/Documents/Write-Up/HackSecuReimsCTF_2k19/images/image15.png?lastModify=1549398699)
+![](images/image15.png)
 
 To conclude, as you have maybe guessed, the entire problem result in the fact that there is few documentations in openSUSE linux. As you have seen, when you have the correct profile to analyze the dump, this is easier because you just use an automated tools to retrieve informations include in the dump. In fact, I did this challenge because I found pity that no one flag it or even try it in depth. Indeed, it requires patience and lot of documentation reading to do it but that’s a good way to progress I think. Even if after ten hours of try and fails I did not succeed, I never gave up and did this challenge some hours after the CTF at home. Regardless, if I have an advice for you guys, it is to never give up, RTFM and believe in your dreams.
 
