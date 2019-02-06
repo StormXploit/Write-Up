@@ -12,21 +12,21 @@ This challenge was one of the hardest forensic challenge of the event. I didn’
 
 First of all, I tried to check the image profile of the dump with volatility. Unfortunately, there was only one correspondence: it was with an old linux kernel that I used for a challenge some weeks ago. As it is a linux dump, I should determine the version of the kernel to analyze it:
 
-    storm at arch in ~/H/f/openme`
-    `↪ strings openme.dmp | grep "Linux version" | sort | uniq`
-    `ID_MODEL_FROM_DATABASE=Raptor 4000-L [Linux version]`
-    `ID_MODEL_FROM_DATABASE=Raptor 4000-LR-L [Linux version]`
-    `Linux version 4.12.14-lp150.12.16-default (geeko@buildhost) (gcc version 7.3.1 20180323 [gcc-7-branch revision 258812] (SUSE Linux) ) #1 SMP Tue Aug 14 17:51:27 UTC 2018 (28574e6)`
-    `MESSAGE=Linux version 4.12.14-lp150.12.16-default (geeko@buildhost) (gcc version 7.3.1 20180323 [gcc-7-branch revision 258812] (SUSE Linux) ) #1 SMP Tue Aug 14 17:51:27 UTC 2018 (28574e6)`
-    `Raptor 4000-L [Linux version]`
-    `Raptor 4000-LR-L [Linux version]`
+    storm at arch in ~/H/f/openme
+    ↪ strings openme.dmp | grep "Linux version" | sort | uniq
+    ID_MODEL_FROM_DATABASE=Raptor 4000-L [Linux version]
+    ID_MODEL_FROM_DATABASE=Raptor 4000-LR-L [Linux version]
+    Linux version 4.12.14-lp150.12.16-default (geeko@buildhost) (gcc version 7.3.1 20180323 [gcc-7-branch revision 258812] (SUSE Linux) ) #1 SMP Tue Aug 14 17:51:27 UTC 2018 (28574e6)
+    MESSAGE=Linux version 4.12.14-lp150.12.16-default (geeko@buildhost) (gcc version 7.3.1 20180323 [gcc-7-branch revision 258812] (SUSE Linux) ) #1 SMP Tue Aug 14 17:51:27 UTC 2018 (28574e6)
+    Raptor 4000-L [Linux version]
+    Raptor 4000-LR-L [Linux version]
 
 As you can see, it is an openSUSE linux profile. After doing this, we need to install an openSUSE image in our favorite hypervisor, but we must choose the right version:
 
-    `storm at arch in ~/H/f/openme`
-    `↪ strings openme.dmp | grep "SUSE" | sort | uniq`
-    `suserelease: openSUSE Leap 15.0`
-    `suserelease=openSUSE Leap 15.0`
+    storm at arch in ~/H/f/openme
+    ↪ strings openme.dmp | grep "SUSE" | sort | uniq
+    suserelease: openSUSE Leap 15.0
+    suserelease=openSUSE Leap 15.0
 
 After installing openSUSE in a virtual machine (about 1 hour) we get it.
 
@@ -48,7 +48,7 @@ As I already have the VM I used to flag the challenge, I have this package insta
 
 ![](images/image3.png)
 
-Yes the kernel is installed, we can create the _module.dwarf_ file using volaitlity. I went into the directory /_home/ctf/volatility/tools/linux/_ and modified the Makefile as I was not running the right kernel (and didn’t want to reboot):
+Yes the kernel is installed, we can create the _module.dwarf_ file using volatility. I went into the directory /_home/ctf/volatility/tools/linux/_ and modified the Makefile as I was not running the right kernel (and didn’t want to reboot):
 
 ![](images/image4.png)
 
@@ -84,7 +84,7 @@ Perfect, we can use it to analyze our dump.
 
 **Flag the challenge: analyze the dump**
 
-First of all, I used the command linux_bash to see if the user did something interesting for us. I highly recommend you to start with this command while analyzing a memory dump. Indeed, users most often do something interesting in a command line: they can be either using a tool to encrypt something (maybe VeraCrypt sometimes) or just a zipfile with a password that might be interesting (like in our case).
+First of all, I used the command linux_bash to see if the user did something interesting for us. I highly recommend you to start with this command while analyzing a memory dump. Indeed, users most often do something interesting in a command line: it can be either using a tool to encrypt something (maybe VeraCrypt sometimes) or just make a zipfile with a password that might be interesting (like in our case).
 
 ![](images/image11.png)
 
@@ -103,6 +103,8 @@ Then, just unzipping the zip with the password the user used to zip it (see in t
 Opening the image and get the flag:
 
 ![](images/image15.png)
+
+Flag : URCACTF{0p3nSus3_ch4ng3_fr0m_D3bi4n}
 
 To conclude, as you have maybe guessed, the entire problem result in the fact that there is few documentations in openSUSE linux. As you have seen, when you have the correct profile to analyze the dump, this is easier because you just use an automated tools to retrieve informations include in the dump. In fact, I did this challenge because I found pity that no one flag it or even try it in depth. Indeed, it requires patience and lot of documentation reading to do it but that’s a good way to progress I think. Even if after ten hours of try and fails I did not succeed, I never gave up and did this challenge some hours after the CTF at home. Regardless, if I have an advice for you guys, it is to never give up, RTFM and believe in your dreams.
 
