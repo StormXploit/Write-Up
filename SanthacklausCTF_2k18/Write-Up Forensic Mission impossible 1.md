@@ -21,7 +21,7 @@ Then reboot and verify your kernel is well installed:
     Linux debian 3.16.0-6-amd64 #1 SMP Debian 3.16.57-2 (2018-07-14) x86_64 GNU/Linux
 Nice, it works well so now we create the profile for the memory dump after installing volatility tools:
 
-    root@debian:/usr/src/volatility-tools# chmod -R 777 linux/
+    root@debian:/usr/src/volatility-tools# chmod -R 777 linux/ && cd linux/
     root@debian:/usr/src/volatility-tools/linux# make
     root@debian:/usr/src/volatility-tools/linux# zip santha_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64
 ![](images/yolo.png)
