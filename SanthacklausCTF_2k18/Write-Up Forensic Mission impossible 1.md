@@ -24,7 +24,6 @@ Nice, it works well so now we create the profile for the memory dump after insta
     root@debian:/usr/src/volatility-tools# chmod -R 777 linux/
     root@debian:/usr/src/volatility-tools/linux# make
     root@debian:/usr/src/volatility-tools/linux# zip santha_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64
-    root@debian:/usr/src/volatility-tools/linux# zip santha_profile.zip module.dwarf /boot/System.map-3.16.0-6-amd64
 ![](images/yolo.png)
 
 Hmm sounds good, I copy the profile to my physical machine and place it in the right directory:
