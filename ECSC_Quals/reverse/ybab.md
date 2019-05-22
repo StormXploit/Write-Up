@@ -1,4 +1,4 @@
-![](images/ybab.png)
+![](images/vault.png)
 
 **Ybab Write-Up**
 
