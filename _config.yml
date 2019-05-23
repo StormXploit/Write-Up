@@ -1,7 +1,6 @@
 # visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
 
-
-theme: jekyll-sleek
+theme: jekyll-theme-cayman
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
@@ -35,4 +34,4 @@ username: StormXploit
 # sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
 
 BASE_PATH:
-theme: jekyll-theme-cayman
+
