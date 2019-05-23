@@ -1,1 +1,38 @@
+# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+
+
+theme: jekyll-sleek
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
+highlighter: rouge
+markdown: kramdown
+disqus: StormXploit
+google_analytics: StormXploit
+title: StormXploit
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: StormXploit
+
+description: CTF Player 
+author:
+  name: StormXploit
+  email: ctf.storm@gmail.com
+  github: StormXploit
+  twitter: StormXploit
+  bio: 17 y/o student fond of infosec
+  
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+twitter_username: StormXploit
+username: StormXploit
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH:
 theme: jekyll-theme-cayman
