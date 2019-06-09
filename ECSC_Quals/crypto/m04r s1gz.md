@@ -75,9 +75,7 @@ Here are the steps in the pdf, to correctly execute the attack:
 
 Our S group is in range(2, 2**32) as I wrote above. To compute its signature, we should find its list of primes, sign them and mod n the result. The following equation expresses the attack better:
 
-```
-sign(s) = (sign(p1) * sign(p2) ... * sign(pn)) mod n
-```
+![](http://latex2png.com/output//latex_ef073a0e8192bc039c04442d0962e7bc.png)
 
 where ```sign``` is the signature, ```s``` is the secret number (the challenge), ```p1``` is the first prime factor of s, and n is the modulus.
 
