@@ -75,9 +75,9 @@ Here are the steps in the pdf, to correctly execute the attack:
 
 Our S group is in range(2, 2**32) as I wrote above. To compute its signature, we should find its list of primes, sign them and mod n the result. The following equation expresses the attack better:
 
-![](http://latex2png.com/output//latex_ef073a0e8192bc039c04442d0962e7bc.png)
+![](http://latex2png.com/output//latex_e3b871f2d1e49e2cdc3e02691d158a58.png)
 
-where ```sign``` is the signature, ```s``` is the secret number (the challenge), ```p1``` is the first prime factor of s, and n is the modulus.
+where ![](http://latex2png.com/output//latex_a936f0834c4f9226195260a1e938eaef.png) is the signature, ![](http://latex2png.com/output//latex_ec633a3435fc7443751c95f4776c5b2f.png) is the secret number (the challenge), ![](http://latex2png.com/output//latex_ba895e0f1594fb7ce95e87bb79475c90.png) is the first prime factor of ![](http://latex2png.com/output//latex_ec633a3435fc7443751c95f4776c5b2f.png), ![](images/latex_7f215e83e804d88f2b83894c5f3d96cc.png)the last one, and ![](http://latex2png.com/output//latex_bb9575df9f26f5566fc54ea12464436a.png) is the modulus. 
 
 Our program will be divided in 2 main parts. First of all, do a list of all prime numbers in range(2, 9000), ask the application to sign them, store the signature in another list. Then make up a dictionary, mixing the first list of primes with their signatures. In the second part, decompose the challenge into prime factors, check and multiply their signatures, and do the modulo n operation. 
 
