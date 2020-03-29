@@ -75,7 +75,7 @@ Here are the steps in the pdf, to correctly execute the attack:
 
 Our S group is in range(2, 2**32) as I wrote above. To compute its signature, we should find its list of primes, sign them and mod n the result. The following equation expresses the attack better:
 
-<img src="https://render.githubusercontent.com/render/math?math=sign(m) = \prod_{i=1}^{q} sign(p_i)">
+<img src="https://render.githubusercontent.com/render/math?math=sign(m) = \prod_{i=1}^{q} sign(p_i) \ [n]">
 
 where <img src="https://render.githubusercontent.com/render/math?math=sign()">  is the signature, <img src="https://render.githubusercontent.com/render/math?math=m">  is the secret number (the challenge), <img src="https://render.githubusercontent.com/render/math?math=p_i"> are the prime factors decomposition of <img src="https://render.githubusercontent.com/render/math?math=m">, and <img src="https://render.githubusercontent.com/render/math?math=n"> is the modulus. 
 
